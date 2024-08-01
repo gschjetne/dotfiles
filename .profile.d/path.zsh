@@ -10,6 +10,9 @@ add /snap/bin/
 # Add go
 add /usr/local/go/bin
 
+# Add Zig
+add $HOME/.zig
+
 # Private scripts
 add $HOME/bin
 add $HOME/.local/bin
