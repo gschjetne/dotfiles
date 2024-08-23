@@ -70,7 +70,7 @@ ZSH_CUSTOM=$HOME/.profile.d
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose fzf zsh-interactive-cd)
+plugins=(docker docker-compose fzf zsh-interactive-cd mvn)
 
 source $ZSH/oh-my-zsh.sh
 
