@@ -9,6 +9,7 @@ add /snap/bin/
 
 # Add go
 add $HOME/go/bin
+add /usr/local/go/bin/
 
 # Add Zig
 add $HOME/.zig
