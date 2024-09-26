@@ -1,7 +1,7 @@
 function theme_precmd() {
     local clock_fg="#222436"
     local clock_bg="#737aa2"
-    local host_fg="#1e2030"
+    local host_fg="#c8d3f5"
     local host_bg="#545c7e"
     local path_fg="#c8d3f5"
     local path_bg="#3b4261"
@@ -11,6 +11,12 @@ function theme_precmd() {
     local error_bg="#c53b53"
     local dollar_fg="#797aa2"
 
+    local dollar="%F{$dollar_fg}  %f"
+
+    if [[ $short_prompt = true ]]; then
+        PROMPT=$dollar
+        return
+    fi
 
     local clock="%F{$clock_fg}%K{$clock_bg} %T %F{$clock_bg}"
 
@@ -41,9 +47,16 @@ function theme_precmd() {
 
     local error="%K{$error_bg}%F{$error_fg} %? %F{$error_bg}"
 
-    PROMPT="$clock$host_icon$working_dir$git_prompt%(?..$error)%k%F{$dollar_fg}  %f"
+    PROMPT="$clock$host_icon$working_dir$git_prompt%(?..$error)%k$dollar"
+
+    short_prompt=true
+}
+
+function theme_preexec() {
+    unset short_prompt
 }
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd theme_precmd
+add-zsh-hook preexec theme_preexec
 
